@@ -1,0 +1,8 @@
+# robots.txt for Cerebellum Softworks
+User-agent: *
+Allow: /
+Disallow: /error
+Disallow: /404
+
+# Sitemap location
+Sitemap: https://cerebellumsoftworks.com/sitemap.xml

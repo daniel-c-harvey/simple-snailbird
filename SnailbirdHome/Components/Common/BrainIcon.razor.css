@@ -1,0 +1,9 @@
+.brain-gradient {
+    padding: 6px;
+    /* background: radial-gradient(circle at center, var(--mud-palette-gray-default) 0%, transparent 75%); */
+    /* background: var(--mud-palette-gray-default); */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

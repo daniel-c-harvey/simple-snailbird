@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+
+  <ItemGroup>
+    <PackageReference Include="MudBlazor" Version="8.14.0" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="Components\Common\Latex\ResumeRenderer.razor" />
+    <_ContentIncludedByDefault Remove="Components\Common\Latex\Sections\Coursework.razor" />
+    <_ContentIncludedByDefault Remove="Components\Common\Latex\Sections\Education.razor" />
+    <_ContentIncludedByDefault Remove="Components\Common\Latex\Sections\Header.razor" />
+    <_ContentIncludedByDefault Remove="Components\Common\Latex\Sections\Product.razor" />
+    <_ContentIncludedByDefault Remove="Components\Common\Latex\Sections\Project.razor" />
+    <_ContentIncludedByDefault Remove="Components\Common\Latex\Sections\Role.razor" />
+    <_ContentIncludedByDefault Remove="Components\Common\Latex\Sections\Section.razor" />
+    <_ContentIncludedByDefault Remove="Components\Common\Latex\Sections\Skills.razor" />
+  </ItemGroup>
+</Project>

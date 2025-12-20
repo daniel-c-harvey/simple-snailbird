@@ -1,0 +1,33 @@
+﻿<div class="service-card">
+    <MudCard Elevation="8">
+        <MudCardHeader Style="@($"background: var({ColorCss}); color: var(--mud-palette-primary-text); padding: 32px 24px;")">
+            <CardHeaderContent>
+                <div class="d-flex flex-column align-center">
+                    <MudIcon Icon="@Icon" Size="Size.Large" Style="font-size: 5rem; margin-bottom: 16px;" />
+                    <MudText Typo="Typo.h4" Align="Align.Center" Style="font-family: Commissioner, sans-serif; font-weight: 600;">
+                        @Title
+                    </MudText>
+                </div>
+            </CardHeaderContent>
+        </MudCardHeader>
+        <MudCardContent Class="pa-6">
+            <MudText Typo="Typo.body1" Class="mb-4" Style="line-height: 1.8;">
+                @HeaderContent
+            </MudText>
+            <MudDivider Class="my-4" />
+            <MudText Typo="Typo.body2" Style="line-height: 1.7;">
+                @BodyContent
+            </MudText>
+        </MudCardContent>
+    </MudCard>
+</div>
+
+@code {
+
+    [Parameter] public required string Title { get; set; }
+    [Parameter] public required string Icon { get; set; }
+    [Parameter] public required string ColorCss { get; set; }
+    [Parameter] public required RenderFragment HeaderContent { get; set; }
+    [Parameter] public required RenderFragment BodyContent { get; set; }
+
+}

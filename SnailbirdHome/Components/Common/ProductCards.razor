@@ -1,0 +1,66 @@
+<MudContainer MaxWidth="MaxWidth.Large" Class="my-16">
+    <MudStack AlignItems="AlignItems.Stretch" Spacing="4">
+        
+            <ProductCard Title="Custom Business Software Implementation"
+                         Icon="@Icons.Material.Filled.IntegrationInstructions"
+                         ColorCss="--mud-palette-secondary"
+                         HeaderText="Full-lifecycle software development tailored to your unique business challenges, from rapid 4-week prototypes to comprehensive enterprise systems that evolve over months."
+                         BodyBlocks="@([    
+                             new("We specialize in understanding complex business workflows across industries — from industrial supply chain operations to automotive marketplaces and maritime management systems.", 
+                                @Icons.Material.Filled.Factory),
+                             new ("With deep expertise in the .NET ecosystem and the agility to adapt to emerging technologies, we build reliable, scalable solutions that grow with your organization.",
+                                new Image("img/dotnet-logo.webp", "Dotnet Logo")),
+                             new("Our approach emphasizes partnership: we listen, we learn your domain, and we deliver software that solves real problems.",
+                                @Icons.Material.Filled.Handshake) 
+                         ])">
+                <CallToAction>
+                    <MudButton Variant="Variant.Filled" Color="Color.Secondary" Href="/solutions/software-development">
+                        <div style="text-align: center;">
+                            Learn More About Development Services
+                        </div>
+                    </MudButton>
+                </CallToAction>
+            </ProductCard>
+
+            <ProductCard Title="Babelfish Live Captioning & Translation"
+                         Icon="@Icons.Material.Filled.Translate"
+                         ColorCss="--mud-palette-primary-darken"
+                         HeaderText="Professional real-time captioning and translation services that make technical content accessible to global audiences, regardless of language or hearing ability."
+                         BodyBlocks="@([
+                             new ("From technical conferences to virtual presentations, our specialized service delivers accurate, real-time communication for complex technical terminology.",
+                                 @Icons.Material.Filled.Mic),
+                             new ("We understand that precision matters—especially when communicating sophisticated concepts across language barriers.",
+                                 @Icons.Material.Filled.Language),
+                         ])">
+                <CallToAction>
+                    <MudButton Variant="Variant.Filled" Color="Color.Primary" Href="/solutions/babelfish">
+                        <div style="text-align: center;">
+                            Learn More About Babelfish
+                        </div>
+                    </MudButton>
+                </CallToAction>
+            </ProductCard>
+
+            <ProductCard Title="Software Maintenance & Codebase Stewardship"
+                         Icon="@Icons.Material.Filled.Build"
+                         ColorCss="--mud-palette-tertiary"
+                         HeaderText="Expert care for your existing custom software and codebases, whether built by our team or inherited from previous development efforts."
+                         BodyBlocks="@([
+                             new("We understand that software maintenance requires more than technical skill—it demands patience, careful analysis, and respect for existing systems.",
+                                 @Icons.Material.Filled.Timer),
+                             new("From routine updates and security patches to performance optimization and feature enhancements, we provide reliable stewardship that keeps your applications running smoothly.",
+                                 @Icons.Material.Filled.Security),
+                             new("Whether modernizing legacy code or evolving mature products, our approach balances stability with innovation.",
+                                 @Icons.Material.Filled.Autorenew)
+                         ])">
+                <CallToAction>
+                    <MudButton Variant="Variant.Filled" Color="Color.Tertiary" Href="/solutions/software-maintenance">
+                        <div style="text-align: center;">
+                            Learn More About Maintenance Services
+                        </div>
+                    </MudButton>
+                </CallToAction>             
+            </ProductCard>
+        
+    </MudStack>
+</MudContainer>

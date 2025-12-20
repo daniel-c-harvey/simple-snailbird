@@ -1,0 +1,101 @@
+@using MudBlazor
+
+<div class="project-card">
+    <MudCard Elevation="0">
+        <MudCardHeader Style="@($"background: var(--mud-palette-surface); color: var({ColorCss});")">
+            <CardHeaderContent>
+                <MudStack Row AlignItems="AlignItems.Center" Spacing="2">
+                    <MudIcon Icon="@Icon" Size="Size.Large" />
+                    <MudText Typo="Typo.h5" Style="font-family: Commissioner, sans-serif; font-weight: 500;">@Title</MudText>
+                </MudStack>
+            </CardHeaderContent>
+        </MudCardHeader>
+        <MudCardContent>
+            <div class="py-2 px-4">
+                <MudText Typo="Typo.h6" Class="mb-4" Style="font-weight: 400;">
+                    @HeaderText
+                </MudText>
+
+                <MudDivider Class="mt-4 mb-8" />
+
+                @if (BodyTextBlocks.Length > 0)
+                {
+                    <MudGrid Justify="Justify.SpaceAround" Spacing="3" Class="d-flex d-md-none">
+                        @foreach (var block in BodyBlocks)
+                        {
+                            <MudItem xs="12" Class="px-4 py-2">
+                                <MudPaper Elevation="0" Class="pa-2 ps-3 content-block" Style="@($"--block-hover-color: var({ColorCss});")">
+                                    <MudText Typo="Typo.body1">@block.Text</MudText>
+                                </MudPaper>
+                            </MudItem>
+                            
+                            @RenderBodyBlockImage(block, true)
+                        }
+                    </MudGrid>
+
+                    <MudGrid Justify="Justify.SpaceBetween" Spacing="3" Class="d-none d-md-flex">
+                        @{bool textLeft = true;}
+                        @foreach (var block in BodyBlocks)
+                        {
+                            @* ALternating Item Text and Images *@
+                            @if (!textLeft)
+                            {
+                                @RenderBodyBlockImage(block)    
+                            }
+
+                            <MudItem xs="6" Class="px-4 py-4">
+                                <MudPaper Elevation="0" Class="pa-2 ps-3 content-block" Style="@($"--block-hover-color: var({ColorCss});")">
+                                    <MudText Typo="Typo.body1">@block.Text</MudText>
+                                </MudPaper>
+                            </MudItem>
+                            
+                            @if(textLeft)
+                            {
+                                @RenderBodyBlockImage(block)
+                            }
+                            textLeft = !textLeft;       
+                        }
+                    </MudGrid>
+                }
+            </div>
+        </MudCardContent>
+        <MudCardActions Class="d-flex justify-center">
+            @if (CallToAction != null)
+            {
+                <MudPaper Elevation="0" Class="pa-2 ps-3" Style="@($"--block-hover-color: var({ColorCss});")">
+                    @CallToAction
+                </MudPaper>
+            }
+        </MudCardActions>
+    </MudCard>
+</div>
+
+@code {
+    [Parameter] public required string Title { get; set; }
+    [Parameter] public required string Icon { get; set; }
+    [Parameter] public required string ColorCss { get; set; }
+    [Parameter] public required string HeaderText { get; set; }
+    [Parameter] public required List<BodyBlock> BodyBlocks { get; set; }
+    [Parameter] public RenderFragment? CallToAction { get; set; }
+    
+    private string[] BodyTextBlocks => BodyBlocks.Select(b => b.Text).ToArray();
+
+    // Fragments
+    private RenderFragment RenderBodyBlockImage(BodyBlock block, bool mobile  = false)
+    {
+        return @<MudItem xs="@(mobile ? 12 : 6)" Class="px-4 py-2">
+                    @if (block.Image is not null)
+                    {
+                        <MudPaper Elevation="0" Class="pa-2 ps-3 d-flex justify-center align-center" Style="@($"height: 100%; --block-hover-color: var({ColorCss});")">
+                            <MudImage Src="@block.Image.Url" Alt="@block.Image.Alt" Width="60" Height="60"/>
+                        </MudPaper>
+                    }
+                    else if (block.Icon is not null)
+                    {
+                        <MudPaper Elevation="0" Class="pa-2 ps-3 d-flex justify-center align-center" Style="@($"height: 100%; --block-hover-color: var({ColorCss});")">
+                            <MudIcon Icon="@block.Icon" Style="@($"font-size: 3rem; color: var({ColorCss})")"/>
+                        </MudPaper>
+                    }
+                </MudItem>;
+    }
+}

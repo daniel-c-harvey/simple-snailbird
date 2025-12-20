@@ -1,0 +1,42 @@
+@* Hero Carousel Component *@
+
+<div class="d-flex justify-center align-center" style="width: 100%; padding: 2rem 0;">
+    <MudCarousel Class="mud-width-full"
+                 Style="width: 70%; aspect-ratio: 2;"
+                 EnableSwipeGesture="true"
+                 ShowBullets="false"
+                 ShowArrows="true"
+                 AutoCycle="true"
+                 AutoCycleTime="TimeSpan.FromSeconds(3.5)"
+                 TData="object">
+
+        <MudCarouselItem Transition="Transition.Slide">
+            <div class="d-flex justify-center align-center" style="height: 100%">
+                <img src="/img/babelfish-gui-2.webp" alt="Babelfish Preprocessor" style="max-height: 100%; max-width: 100%; object-fit: contain;" />
+            </div>
+        </MudCarouselItem>
+
+        <MudCarouselItem Transition="Transition.Slide">
+            <div class="d-flex justify-center align-center" style="height: 100%;">
+                <img src="/img/babelfish-gui-3.webp" alt="Babelfish Caption Monitor" style="max-height: 100%; max-width: 100%; object-fit: contain;" />
+            </div>
+        </MudCarouselItem>
+
+        <MudCarouselItem Transition="Transition.Slide">
+            <div class="d-flex justify-center align-center" style="height: 100%;">
+                <img src="/img/babelfish-gui-5.webp" alt="Babelfish Translation Control Panel" style="max-height: 100%; max-width: 100%; object-fit: contain;" />
+            </div>
+        </MudCarouselItem>
+        
+        <MudCarouselItem Transition="Transition.Slide">
+            <div class="d-flex justify-center align-center" style="height: 100%;">
+                <img src="/img/babelfish-gui-4.webp" alt="Babelfish Projection Display" style="max-height: 100%; max-width: 100%; object-fit: contain;" />
+            </div>
+        </MudCarouselItem>
+
+    </MudCarousel>
+</div>
+
+@code {
+    // Add any carousel configuration parameters here if needed
+}

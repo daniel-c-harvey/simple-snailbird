@@ -1,0 +1,53 @@
+﻿<div class="d-flex justify-center">
+    @* Fullscreen Blurb *@
+    <div class="d-none d-sm-flex">
+        <MudStack Spacing="8" Class="ma-8 pa-16">
+            <MudText Typo="Typo.h5" Align="Align.Center" Style="font-weight: 400;">
+                @_exploreBlurb
+            </MudText>
+            
+            <MudText Typo="Typo.h6" Align="Align.Center" Style="font-weight: 400;">
+                To inquire about a project, please contact us at 
+                <a href="@($"mailto:{_inquiriesEmail}")" target="_blank">
+                    <MudText Inline Typo="Typo.h6" Color="Color.Secondary" Style="font-weight: 400;">
+                        @_inquiriesEmail
+                    </MudText>
+                </a>
+            </MudText>
+            
+            <MudText Typo="Typo.h5" Align="Align.Center" Style="font-weight: 400;">
+                @_thankBlurb
+            </MudText>
+        </MudStack>
+    </div>
+
+    @* Mobile Blurb *@
+    <div class="d-flex d-sm-none">
+        <MudStack Spacing="4" Class="px-2 py-8">
+            <MudText Typo="Typo.h6" Align="Align.Center" Style="font-weight: 400;">
+                @_exploreBlurb
+            </MudText>
+            
+            <MudText Typo="Typo.h6" Align="Align.Center" Style="font-weight: 400;">
+                To inquire about a project, please
+                <a href="@($"mailto:{_inquiriesEmail}")" target="_blank">
+                    <MudText Inline Typo="Typo.h6" Color="Color.Secondary" Style="font-weight: 400;">
+                        contact us!
+                    </MudText>
+                </a>
+            </MudText>
+            
+            <MudText Typo="Typo.h6" Align="Align.Center" Style="font-weight: 400;">
+                @_thankBlurb
+            </MudText>
+        </MudStack>
+    </div>
+</div>
+
+@code {
+
+    private readonly string _inquiriesEmail = "inquiries@cerebellumsoftworks.com";
+    private readonly string _exploreBlurb = "Explore our website to learn more about our company and services.";
+    private readonly string _thankBlurb = "Thank you for your interest!";
+
+}

@@ -1,0 +1,331 @@
+/*
+ * Cerebellum Bootstrap Theme
+ * Shared Bootstrap 5 theme matching CerebellumThemeFactory
+ *
+ * This file provides Bootstrap-compatible styling that matches
+ * the MudBlazor theme defined in CerebellumThemeFactory.cs
+ *
+ * IMPORTANT: This theme is scoped to .bootstrap-layout to avoid
+ * interfering with MudBlazor layouts. Apply the 'bootstrap-layout'
+ * class to any layout or page component that uses Bootstrap.
+ */
+
+/* Typography - Global (shared with MudBlazor and Bootstrap) */
+html, body {
+    font-family: 'Commissioner', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+h1:focus {
+    outline: none;
+}
+
+/* Apply --cs- background/text colors ONLY to Bootstrap layouts */
+.bootstrap-layout {
+    background-color: var(--cs-surface-background);
+    color: var(--cs-text-primary);
+    min-height: 100vh;
+}
+
+/* Cerebellum Softworks Design System - CSS Custom Properties */
+:root .bootstrap-layout {
+    /* Brand Colors - Light Mode */
+    --cs-primary: #00c011;
+    --cs-primary-hover: #009b0d;
+    --cs-primary-rgb: 0, 192, 17;
+
+    --cs-secondary: #2f68b8;
+    --cs-secondary-hover: #25529a;
+    --cs-secondary-rgb: 47, 104, 184;
+
+    --cs-tertiary: #7657b9;
+    --cs-tertiary-hover: #5e3f9a;
+    --cs-tertiary-rgb: 118, 87, 185;
+
+    /* Semantic Colors - Light Mode */
+    --cs-success: #0dbf72;
+    --cs-success-hover: #00a660;
+    --cs-success-rgb: 13, 191, 114;
+
+    --cs-warning: #F57C00;
+    --cs-warning-hover: #e66b00;
+    --cs-warning-rgb: 245, 124, 0;
+
+    --cs-danger: #FF1744;
+    --cs-danger-hover: #e6002f;
+    --cs-danger-rgb: 255, 23, 68;
+
+    --cs-info: #1976D2;
+    --cs-info-hover: #1565c0;
+    --cs-info-rgb: 25, 118, 210;
+
+    /* Neutral Colors - Light Mode */
+    --cs-light: #f5f5f5;
+    --cs-light-rgb: 245, 245, 245;
+    --cs-dark: #424242;
+    --cs-dark-rgb: 66, 66, 66;
+
+    /* Surface Colors - Light Mode */
+    --cs-surface-background: #fafafa;
+    --cs-surface-foreground: #ffffff;
+    --cs-surface-card: #f5f5f5;
+    --cs-surface-elevated: #ffffff;
+
+    /* Text Colors - Light Mode */
+    --cs-text-primary: #37474F;
+    --cs-text-secondary: #546E7A;
+    --cs-text-disabled: #90A4AE;
+    --cs-text-on-primary: #ffffff;
+    --cs-text-on-secondary: #ffffff;
+
+    /* Border Colors - Light Mode */
+    --cs-border-default: #e0e0e0;
+    --cs-border-light: #eeeeee;
+    --cs-border-dark: #bdbdbd;
+
+    /* Typography */
+    --cs-font-family-body: 'Commissioner', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    --cs-font-family-heading: 'Josefin Sans', sans-serif;
+
+    /* Spacing */
+    --cs-spacing-xs: 0.25rem;
+    --cs-spacing-sm: 0.5rem;
+    --cs-spacing-md: 1rem;
+    --cs-spacing-lg: 1.5rem;
+    --cs-spacing-xl: 2rem;
+    --cs-spacing-xxl: 3rem;
+
+    /* Border Radius */
+    --cs-radius-sm: 0.125rem;
+    --cs-radius-md: 0.25rem;
+    --cs-radius-lg: 0.5rem;
+    --cs-radius-xl: 1rem;
+
+    /* Shadows */
+    --cs-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --cs-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    --cs-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    --cs-shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+
+    /* Transitions */
+    --cs-transition-fast: 150ms ease-in-out;
+    --cs-transition-base: 250ms ease-in-out;
+    --cs-transition-slow: 350ms ease-in-out;
+}
+
+/* Dark Mode Variables - Supports both Bootstrap and MudBlazor dark mode */
+[data-bs-theme="dark"] .bootstrap-layout {
+    /* Brand Colors - Dark Mode */
+    --cs-primary: #00c713;
+    --cs-primary-hover: #00b010;
+    --cs-secondary: #4a8fff;
+    --cs-secondary-hover: #3675e0;
+    --cs-tertiary: #9575cd;
+    --cs-tertiary-hover: #7e57c2;
+
+    /* Semantic Colors - Dark Mode */
+    --cs-success: #00ff90;
+    --cs-success-hover: #00e080;
+    --cs-warning: #ffb545;
+    --cs-warning-hover: #ffa020;
+    --cs-danger: #ff4569;
+    --cs-danger-hover: #ff2050;
+    --cs-info: #42a5f5;
+    --cs-info-hover: #2196f3;
+
+    /* Neutral Colors - Dark Mode */
+    --cs-light: #2C393F;
+    --cs-dark: #263238;
+
+    /* Surface Colors - Dark Mode */
+    --cs-surface-background: #1C262A;
+    --cs-surface-foreground: #263238;
+    --cs-surface-card: #2C393F;
+    --cs-surface-elevated: #37474F;
+
+    /* Text Colors - Dark Mode */
+    --cs-text-primary: #B0BEC5;
+    --cs-text-secondary: #90A4AE;
+    --cs-text-disabled: #546E7A;
+    --cs-text-on-primary: #ffffff;
+    --cs-text-on-secondary: #ffffff;
+
+    /* Border Colors - Dark Mode */
+    --cs-border-default: #2C393F;
+    --cs-border-light: #37474F;
+    --cs-border-dark: #1C262A;
+
+    /* Shadows - Dark Mode (more subtle) */
+    --cs-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+    --cs-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
+    --cs-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
+    --cs-shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.6);
+}
+
+/* Bootstrap 5 Theme Variables - Scoped to .bootstrap-layout */
+.bootstrap-layout {
+    /* Map Cerebellum variables to Bootstrap variables */
+    --bs-primary: var(--cs-primary);
+    --bs-primary-rgb: var(--cs-primary-rgb);
+
+    --bs-secondary: var(--cs-secondary);
+    --bs-secondary-rgb: var(--cs-secondary-rgb);
+
+    --bs-success: var(--cs-success);
+    --bs-success-rgb: var(--cs-success-rgb);
+
+    --bs-warning: var(--cs-warning);
+    --bs-warning-rgb: var(--cs-warning-rgb);
+
+    --bs-danger: var(--cs-danger);
+    --bs-danger-rgb: var(--cs-danger-rgb);
+
+    --bs-info: var(--cs-info);
+    --bs-info-rgb: var(--cs-info-rgb);
+
+    --bs-light: var(--cs-light);
+    --bs-light-rgb: var(--cs-light-rgb);
+    --bs-dark: var(--cs-dark);
+    --bs-dark-rgb: var(--cs-dark-rgb);
+
+    --bs-body-bg: var(--cs-surface-background);
+    --bs-body-color: var(--cs-text-primary);
+    --bs-body-font-family: var(--cs-font-family-body);
+
+    --bs-heading-color: var(--cs-text-primary);
+
+    --bs-link-color: var(--cs-primary);
+    --bs-link-hover-color: var(--cs-primary-hover);
+
+    --bs-border-color: var(--cs-border-default);
+    --bs-border-radius: var(--cs-radius-md);
+}
+
+/*
+ * Dark Mode Support for Bootstrap Layouts
+ * Add 'data-bs-theme="dark"' attribute to the .bootstrap-layout element
+ * Note: MudBlazor handles its own dark mode separately via MudThemeProvider
+ * The --cs- variables are automatically updated in [data-bs-theme="dark"] scope
+ */
+
+/* Button customizations to match MudBlazor theme */
+.btn-primary {
+    background-color: var(--cs-primary);
+    border-color: var(--cs-primary);
+    color: var(--cs-text-on-primary);
+    transition: var(--cs-transition-fast);
+}
+
+.btn-primary:hover {
+    background-color: var(--cs-primary-hover);
+    border-color: var(--cs-primary-hover);
+}
+
+.btn-secondary {
+    background-color: var(--cs-secondary);
+    border-color: var(--cs-secondary);
+    color: var(--cs-text-on-secondary);
+    transition: var(--cs-transition-fast);
+}
+
+.btn-secondary:hover {
+    background-color: var(--cs-secondary-hover);
+    border-color: var(--cs-secondary-hover);
+}
+
+.btn-success {
+    background-color: var(--cs-success);
+    border-color: var(--cs-success);
+    color: var(--cs-text-on-primary);
+    transition: var(--cs-transition-fast);
+}
+
+.btn-success:hover {
+    background-color: var(--cs-success-hover);
+    border-color: var(--cs-success-hover);
+}
+
+/* Form validation */
+.valid.modified:not([type=checkbox]) {
+    outline: 1px solid var(--cs-success);
+}
+
+.invalid {
+    outline: 1px solid var(--cs-danger);
+}
+
+.validation-message {
+    color: var(--cs-danger);
+}
+
+/* Error boundary */
+.blazor-error-boundary {
+    background: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTYiIGhlaWdodD0iNDkiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIG92ZXJmbG93PSJoaWRkZW4iPjxkZWZzPjxjbGlwUGF0aCBpZD0iY2xpcDAiPjxyZWN0IHg9IjIzNSIgeT0iNTEiIHdpZHRoPSI1NiIgaGVpZ2h0PSI0OSIvPjwvY2xpcFBhdGg+PC9kZWZzPjxnIGNsaXAtcGF0aD0idXJsKCNjbGlwMCkiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0yMzUgLTUxKSI+PHBhdGggZD0iTTI2My41MDYgNTFDMjY0LjcxNyA1MSAyNjUuODEzIDUxLjQ4MzcgMjY2LjYwNiA1Mi4yNjU4TDI2Ny4wNTIgNTIuNzk4NyAyNjcuNTM5IDUzLjYyODMgMjkwLjE4NSA5Mi4xODMxIDI5MC41NDUgOTIuNzk1IDI5MC42NTYgOTIuOTk2QzI5MC44NzcgOTMuNTEzIDI5MSA5NC4wODE1IDI5MSA5NC42NzgyIDI5MSA5Ny4wNjUxIDI4OS4wMzggOTkgMjg2LjYxNyA5OUwyNDAuMzgzIDk5QzIzNy45NjMgOTkgMjM2IDk3LjA2NTEgMjM2IDk0LjY3ODIgMjM2IDk0LjM3OTkgMjM2LjAzMSA5NC4wODg2IDIzNi4wODkgOTMuODA3MkwyMzYuMzM4IDkzLjAxNjIgMjM2Ljg1OCA5Mi4xMzE0IDI1OS40NzMgNTMuNjI5NCAyNTkuOTYxIDUyLjc5ODUgMjYwLjQwNyA1Mi4yNjU4QzI2MS4yIDUxLjQ4MzcgMjYyLjI5NiA1MSAyNjMuNTA2IDUxWk0yNjMuNTg2IDY2LjAxODNDMjYwLjczNyA2Ni4wMTgzIDI1OS4zMTMgNjcuMTI0NSAyNTkuMzEzIDY5LjMzNyAyNTkuMzEzIDY5LjYxMDIgMjU5LjMzMiA2OS44NjA4IDI1OS4zNzEgNzAuMDg4N0wyNjEuNzk1IDg0LjAxNjEgMjY1LjM4IDg0LjAxNjEgMjY3LjgyMSA2OS43NDc1QzI2Ny44NiA2OS43MzA5IDI2Ny44NzkgNjkuNTg3NyAyNjcuODc5IDY5LjMxNzkgMjY3Ljg3OSA2Ny4xMTgyIDI2Ni40NDggNjYuMDE4MyAyNjMuNTg2IDY2LjAxODNaTTI2My41NzYgODYuMDU0N0MyNjEuMDQ5IDg2LjA1NDcgMjU5Ljc4NiA4Ny4zMDA1IDI1OS43ODYgODkuNzkyMSAyNTkuNzg2IDkyLjI4MzcgMjYxLjA0OSA5My41Mjk1IDI2My41NzYgOTMuNTI5NSAyNjYuMTE2IDkzLjUyOTUgMjY3LjM4NyA5Mi4yODM3IDI2Ny4zODcgODkuNzkyMSAyNjcuMzg3IDg3LjMwMDUgMjY2LjExNiA4Ni4wNTQ3IDI2My41NzYgODYuMDU0N1oiIGZpbGw9IiNGRkU1MDAiIGZpbGwtcnVsZT0iZXZlbm9kZCIvPjwvZz48L3N2Zz4=) no-repeat 1rem/1.8rem, var(--cs-danger);
+    padding: var(--cs-spacing-md) var(--cs-spacing-md) var(--cs-spacing-md) 3.7rem;
+    color: white;
+}
+
+.blazor-error-boundary::after {
+    content: "An error has occurred."
+}
+
+/* Card and surface customizations */
+.card {
+    background-color: var(--cs-surface-card);
+    border-color: var(--cs-border-default);
+    box-shadow: var(--cs-shadow-sm);
+    transition: var(--cs-transition-base);
+}
+
+.card:hover {
+    box-shadow: var(--cs-shadow-md);
+}
+
+/* Table customizations */
+.table {
+    --bs-table-striped-bg: var(--cs-surface-foreground);
+    --bs-table-hover-bg: var(--cs-surface-card);
+}
+
+/* Custom Cerebellum colors as utility classes */
+.bg-cerebellum-primary {
+    background-color: var(--cs-primary) !important;
+}
+
+.text-cerebellum-primary {
+    color: var(--cs-primary) !important;
+}
+
+.bg-cerebellum-secondary {
+    background-color: var(--cs-secondary) !important;
+}
+
+.text-cerebellum-secondary {
+    color: var(--cs-secondary) !important;
+}
+
+.bg-cerebellum-tertiary {
+    background-color: var(--cs-tertiary) !important;
+}
+
+.text-cerebellum-tertiary {
+    color: var(--cs-tertiary) !important;
+}
+
+/* Additional utility classes using --cs- variables */
+.cs-shadow-sm { box-shadow: var(--cs-shadow-sm); }
+.cs-shadow-md { box-shadow: var(--cs-shadow-md); }
+.cs-shadow-lg { box-shadow: var(--cs-shadow-lg); }
+.cs-shadow-xl { box-shadow: var(--cs-shadow-xl); }
+
+.cs-transition-fast { transition: var(--cs-transition-fast); }
+.cs-transition-base { transition: var(--cs-transition-base); }
+.cs-transition-slow { transition: var(--cs-transition-slow); }
+
+.cs-radius-sm { border-radius: var(--cs-radius-sm); }
+.cs-radius-md { border-radius: var(--cs-radius-md); }
+.cs-radius-lg { border-radius: var(--cs-radius-lg); }
+.cs-radius-xl { border-radius: var(--cs-radius-xl); }

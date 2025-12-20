@@ -1,0 +1,53 @@
+@using MudBlazor
+
+<MudContainer MaxWidth="MaxWidth.ExtraLarge" Class="px-6 py-4">
+    <MudGrid Spacing="12" Justify="Justify.Center">
+
+        @* Custom Software Solution Implementation Card *@
+        <MudItem xs="12" md="6" lg="4" Class="centered-item">
+            <ServiceCard Title="Custom Software Solutions" Icon="@Icons.Material.Filled.Code" ColorCss="--mud-palette-secondary">
+                <HeaderContent>
+                    Comprehensive software implementation services that take your project from initial concept through 
+                    production deployment and ongoing support.
+                </HeaderContent>
+                <BodyContent>
+                    We specialize in building robust, scalable applications tailored to your unique business needs. 
+                    Our full-cycle approach includes requirements gathering, architecture design, development, 
+                    testing, deployment, and continuous improvement—ensuring your software evolves with your business.
+                </BodyContent>
+            </ServiceCard>
+        </MudItem>
+        
+        @* Live Captioning & Translation Card *@
+        <MudItem xs="12" md="6" lg="4" Class="centered-item">
+            <ServiceCard Title="Live Captioning & Translation" Icon="@Icons.Material.Filled.Translate" ColorCss="--mud-palette-primary-darken">
+                <HeaderContent>
+                    Professional real-time captioning and translation services for technical conferences 
+                    and events of any scale, anywhere in the world.
+                </HeaderContent>
+                <BodyContent>
+                    Make your technical content accessible to global audiences with our specialized captioning and 
+                    translation services. We understand complex technical terminology and deliver accurate, 
+                    real-time communication that ensures no participant is left behind, 
+                    regardless of language or hearing ability.
+                </BodyContent>
+            </ServiceCard>
+        </MudItem>
+        
+        @* Software Maintenance Card *@
+        <MudItem xs="12" md="6" lg="4" Class="centered-item">
+            <ServiceCard Title="Software Maintenance" Icon="@Icons.Material.Filled.Build" ColorCss="--mud-palette-tertiary">
+                <HeaderContent>
+                    Expert maintenance and enhancement services for your custom software products, keeping them secure, 
+                    efficient, and up-to-date.
+                </HeaderContent>
+                <BodyContent>
+                    From routine updates and bug fixes to performance optimization and feature enhancements, 
+                    we provide the ongoing care your software needs. 
+                    Our proactive approach prevents issues before they impact your users, 
+                    while our rapid response ensures minimal downtime when challenges arise.
+                </BodyContent>
+            </ServiceCard>
+        </MudItem>
+    </MudGrid>
+</MudContainer>

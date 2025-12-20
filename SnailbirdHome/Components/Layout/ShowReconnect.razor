@@ -1,0 +1,9 @@
+@using SnailbirdHome.Services
+@inject ReconnectBehavior ReconnectBehavior
+
+@code {
+    protected override void OnInitialized()
+    {
+        ReconnectBehavior.Mode = ReconnectMode.Visible;
+    }
+}

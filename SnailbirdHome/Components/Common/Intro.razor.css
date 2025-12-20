@@ -1,0 +1,36 @@
+.intro-content {
+    text-align: center;
+}
+
+.intro-line ::deep .mud-typography {
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+    letter-spacing: 0.044em;
+}
+
+.intro-line-1 ::deep .mud-typography {
+    font-weight: 400;
+    color: var(--mud-palette-surface-lighten);
+}
+
+.intro-line-2 ::deep .mud-typography {
+    font-weight: 400;
+}
+
+.intro-line-2.first ::deep .mud-typography {
+    color: var(--mud-palette-primary);
+}
+
+.intro-line-2.last ::deep .mud-typography {
+    color: var(--mud-palette-secondary);
+}
+
+.intro-line-2.right ::deep .mud-typography {
+    text-align: right;
+    color: var(--mud-palette-secondary);
+}
+
+.intro-line-2.left ::deep .mud-typography {
+    text-align: left;
+    color: var(--mud-palette-primary);
+}

@@ -1,0 +1,9 @@
+.title ::deep .mud-typography {
+    background: linear-gradient(90deg, var(--mud-palette-primary-lighten) 0%,
+                                       var(--mud-palette-secondary-lighten) 66%,
+                                       var(--mud-palette-tertiary-lighten) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    justify-content: center;
+}

@@ -1,0 +1,17 @@
+.service-card { 
+    min-height: 450px;
+    height: 100%;
+    max-width: 420px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+    .service-card ::deep .mud-card {
+        transition: box-shadow 0.3s ease-in-out;
+        border-radius: var(--mud-default-borderradius);
+        height: 100%;
+    }
+
+    .service-card ::deep .mud-card:hover {
+        box-shadow: 0 16px 32px rgba(0, 0, 0, 0.15) !important;
+    }

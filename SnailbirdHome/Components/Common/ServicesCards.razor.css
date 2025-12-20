@@ -1,0 +1,4 @@
+.centered-item {
+    display: grid;
+    justify-content: center;
+}

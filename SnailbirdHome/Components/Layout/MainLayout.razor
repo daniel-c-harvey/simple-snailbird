@@ -1,0 +1,33 @@
+﻿@using SnailbirdHome.Services
+@inherits LayoutComponentBase
+
+<MudThemeProvider Theme="@_theme" IsDarkMode="_isDarkMode" />
+<MudPopoverProvider />
+<MudDialogProvider />
+<MudSnackbarProvider />
+<MudLayout Style="display: flex; flex-direction: column; min-height: 100vh">
+    <MudAppBar Elevation="1">
+        <NavBar @bind-IsDarkMode="_isDarkMode"/>
+    </MudAppBar>
+    <MudMainContent Class="flex-grow-1">
+        @Body
+    </MudMainContent>
+    <Footer />
+</MudLayout>
+
+@code {
+
+    private bool _isDarkMode = false;
+    private MudTheme? _theme = null;
+
+    [Inject] public required CerebellumThemeFactory ThemeFactory { get; set; }
+    
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+
+        _theme = ThemeFactory.MakeTheme();
+    }
+}
+
+

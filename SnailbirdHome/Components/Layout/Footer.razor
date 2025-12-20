@@ -1,0 +1,47 @@
+﻿@using SnailbirdHome.Components.Common
+<MudPaper Square Width="100%" Height="56px" Elevation="2" Class="ma-0 py-4 px-4 border-t-1 d-inline-flex justify-center">
+    <div class="d-none d-md-inline-flex">
+        <MudStack Row AlignItems="AlignItems.Center" Spacing="6">
+            <a href="mailto:@DANIEL_EMAIL" target="_blank">
+                <MudText Typo="Typo.caption" Color="Color.Primary">
+                    @DANIEL_EMAIL
+                </MudText>
+            </a>
+            <BrainIcon/>
+            <a href="mailto:@INQUIRIES_EMAIL" target="_blank">
+                <MudText Typo="Typo.caption" Color="Color.Secondary">
+                    @INQUIRIES_EMAIL
+                </MudText>
+            </a>
+            <BrainIcon Alt/>
+            <a href="mailto:@SUPPORT_EMAIL" target="_blank">
+                <MudText Typo="Typo.caption" Color="Color.Tertiary">
+                    @SUPPORT_EMAIL
+                </MudText>
+            </a>
+        </MudStack>
+    </div>
+
+    <div class="d-inline-flex d-md-none justify-space-between" style="width: 100%">
+        <MudStack Row AlignItems="AlignItems.Center" Spacing="2" Justify="Justify.FlexStart">
+            <BrainIcon Alt/>
+            <a href="mailto:@INQUIRIES_EMAIL" target="_blank">
+                <MudText Inline Typo="Typo.caption" Color="Color.Secondary">
+                    Contact Us
+                </MudText>
+            </a>
+        </MudStack>
+        <MudStack Row AlignItems="AlignItems.Center" Justify="Justify.FlexEnd">
+            <MudText Typo="Typo.caption" Color="Color.Tertiary" Class="d-inline-flex">
+                &#169; 2025 Cerebellum Softworks
+            </MudText>
+        </MudStack>
+    </div>
+</MudPaper>
+@code {
+
+    private const string DANIEL_EMAIL = "daniel@cerebellumsoftworks.com";
+    private const string INQUIRIES_EMAIL = "inquiries@cerebellumsoftworks.com";
+    private const string SUPPORT_EMAIL = "support@cerebellumsoftworks.com";
+
+}

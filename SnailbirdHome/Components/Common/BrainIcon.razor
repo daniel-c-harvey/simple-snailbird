@@ -1,0 +1,8 @@
+<div class="brain-gradient">
+    <MudImage Fluid Width="24" Src="@_imageSrc" Alt="Cerebellum Softworks icon" />
+</div>
+
+@code {
+    [Parameter] public bool Alt { get; set; } = false;
+    private string _imageSrc => Alt ? "img/csw-brain-2-icon.webp" : "img/csw-brain-4.webp";
+}

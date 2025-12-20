@@ -1,0 +1,21 @@
+﻿@page "/404"
+@page "/{*route:nonfile}"
+@using SnailbirdHome.Components.Common
+
+@rendermode InteractiveServer
+
+<PageTitle>Cerebellum Softworks: Page Not Found</PageTitle>
+
+<SeoHead Metadata="@(new PageSeoMetadata
+{
+    Title = "Page Not Found - Cerebellum Softworks",
+    Description = "The page you are looking for could not be found. Return to Cerebellum Softworks home page for custom software solutions and services.",
+    NoIndex = true
+})" />
+
+<FourOhFour />
+
+@code {
+    [Parameter]
+    public string? Route { get; set; }
+}

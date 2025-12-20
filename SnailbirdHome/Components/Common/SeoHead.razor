@@ -1,0 +1,74 @@
+@inject NavigationManager Navigation
+
+@* SEO Meta Tags Component for Blazor *@
+<HeadContent>
+    @* Primary Meta Tags *@
+    <meta name="title" content="@Metadata.Title" />
+    <meta name="description" content="@Metadata.Description" />
+
+    @* Canonical URL *@
+    <link rel="canonical" href="@GetCanonicalUrl()" />
+
+    @* Open Graph / Facebook *@
+    <meta property="og:type" content="@Metadata.OgType" />
+    <meta property="og:url" content="@GetCanonicalUrl()" />
+    <meta property="og:title" content="@Metadata.Title" />
+    <meta property="og:description" content="@Metadata.Description" />
+    <meta property="og:image" content="@GetAbsoluteUrl(Metadata.Image.Url)" />
+    <meta property="og:image:secure_url" content="@GetAbsoluteUrl(Metadata.Image.Url)" />
+    <meta property="og:image:type" content="@Metadata.Image.Type" />
+    <meta property="og:image:width" content="@Metadata.Image.Width" />
+    <meta property="og:image:height" content="@Metadata.Image.Height" />
+    <meta property="og:image:alt" content="@Metadata.Image.Alt" />
+    <meta property="og:site_name" content="Cerebellum Softworks" />
+
+    @* Twitter Card *@
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="@GetCanonicalUrl()" />
+    <meta name="twitter:title" content="@Metadata.Title" />
+    <meta name="twitter:description" content="@Metadata.Description" />
+    <meta name="twitter:image" content="@GetAbsoluteUrl(GetTwitterImage().Url)" />
+    <meta name="twitter:image:alt" content="@GetTwitterImage().Alt" />
+
+    @* Robots directives (if noindex specified) *@
+    @if (Metadata.NoIndex)
+    {
+        <meta name="robots" content="noindex, nofollow" />
+    }
+</HeadContent>
+
+@code {
+    [Parameter] public PageSeoMetadata Metadata { get; set; } = new();
+
+    private string GetCanonicalUrl()
+    {
+        // Use override if provided, otherwise use current page URL
+        var url = Metadata.CanonicalUrlOverride ?? Navigation.Uri;
+        // Force HTTPS for social media platforms (behind reverse proxy)
+        return url.Replace("http://", "https://");
+    }
+
+    private OgImageMetadata GetTwitterImage()
+    {
+        // Use Twitter-specific image if provided, otherwise use default Twitter image
+        return Metadata.TwitterImage ?? PageSeoMetadata.DefaultTwitterImage;
+    }
+
+    private string GetAbsoluteUrl(string url)
+    {
+        if (string.IsNullOrWhiteSpace(url))
+            return string.Empty;
+
+        // If already absolute, ensure HTTPS
+        if (url.StartsWith("http://") || url.StartsWith("https://"))
+            return url.Replace("http://", "https://");
+
+        // Convert relative URL to absolute using current base URI
+        var baseUri = Navigation.BaseUri.TrimEnd('/');
+        var relativeUrl = url.TrimStart('/');
+        var absoluteUrl = $"{baseUri}/{relativeUrl}";
+
+        // Force HTTPS for social media platforms (behind reverse proxy)
+        return absoluteUrl.Replace("http://", "https://");
+    }
+}

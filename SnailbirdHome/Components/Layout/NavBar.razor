@@ -1,0 +1,92 @@
+@using SnailbirdHome.Components.Common
+
+@* Mobile Menu *@
+<div class="d-inline-flex d-md-none align-center flex-1 justify-space-between">
+    <div>
+        <MudStack Row AlignItems="AlignItems.Center">
+            <MudMenu RelativeWidth="DropdownWidth.Adaptive">
+                <ActivatorContent>
+                    <MudStack Row AlignItems="AlignItems.Center" Spacing="4">
+                        <MudIcon Icon="@Icons.Material.Filled.Menu"/>
+                        <BrainIcon/>
+                        <MudText Typo="Typo.button" Color="Color.Secondary" Class="d-none d-sm-inline">Cerebellum Softworks</MudText>
+                        <MudText Typo="Typo.button" Color="Color.Secondary" Class="d-inline d-sm-none">Cerebellum Softworks</MudText>
+                    </MudStack>
+                </ActivatorContent>
+                <ChildContent>
+                    @foreach (PageRoute route in Pages.AllPages)
+                    {
+                        <MudMenuItem Href="@route.Route" Class="px-6">
+                            <MudStack Row AlignItems="AlignItems.Center">
+                                <MudIcon Icon="@route.Icon" Color="Color.Secondary"/>   
+                                <MudText Typo="Typo.button" Color="Color.Secondary">
+                                    @route.Name
+                                </MudText>
+                            </MudStack>
+                        </MudMenuItem>
+                    }
+                </ChildContent>
+            </MudMenu>
+        </MudStack>
+    </div>
+    
+    <div>
+        <MudStack Row AlignItems="AlignItems.Center" Spacing="4">
+            <MudIconButton Icon="@(DarkLightModeButtonIcon)" Color="Color.Inherit" OnClick="@DarkModeToggle"/>
+        </MudStack>
+    </div>
+</div>
+        
+@* Main Menu *@
+<div class="d-none d-md-inline-flex align-center flex-1 justify-space-between">
+    <div>
+        <MudStack Row AlignItems="AlignItems.Center" Spacing="6">
+            <MudLink Href="/" Underline="Underline.None">
+                <MudStack Row AlignItems="AlignItems.Center">    
+                    <BrainIcon/>
+                    <MudText Typo="Typo.button" Color="Color.Secondary">Cerebellum Softworks</MudText>
+                </MudStack>
+            </MudLink>
+        </MudStack>
+    </div>
+    
+    <div>
+        <MudStack Spacing="8" Row AlignItems="AlignItems.Center">
+            @foreach (PageRoute route in Pages.MenuPages)
+            {
+                <MudLink Href="@route.Route">
+                    <MudText Typo="Typo.button" Color="Color.Secondary">@route.Name</MudText>
+                </MudLink>
+            }
+        </MudStack>
+    </div>
+    
+    <div>
+        <MudStack Row AlignItems="AlignItems.Center" Spacing="4">
+            <MudText Typo="Typo.caption" Color="Color.Tertiary">
+                &#169; 2025 Cerebellum Softworks
+            </MudText>
+            <MudIconButton Icon="@(DarkLightModeButtonIcon)" Color="Color.Inherit" OnClick="@DarkModeToggle"/>
+        </MudStack>
+    </div>
+</div>
+
+    
+
+@code {
+    [Parameter] public required bool IsDarkMode { get; set; }
+    [Parameter] public required EventCallback<bool> IsDarkModeChanged { get; set; }
+
+    private void DarkModeToggle()
+    {
+        IsDarkMode = !IsDarkMode;
+        IsDarkModeChanged.InvokeAsync(IsDarkMode);
+    }
+    
+    private string DarkLightModeButtonIcon => IsDarkMode switch
+    {
+        false => Icons.Material.Rounded.LightMode,
+        true => Icons.Material.Outlined.DarkMode,
+    };
+
+}

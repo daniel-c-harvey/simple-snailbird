@@ -1,0 +1,11 @@
+.project-card ::deep .content-block {
+    background: var(--mud-palette-background-grey);
+    border-left: 3px solid var(--mud-palette-divider);
+    transition: background 0.2s ease, border-left-color 0.2s ease;
+    height: 100%;
+}
+
+    .project-card ::deep .content-block:hover {
+        background: var(--mud-palette-action-default-hover);
+        border-left-color: var(--block-hover-color);
+    }

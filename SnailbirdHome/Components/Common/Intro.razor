@@ -1,0 +1,39 @@
+<MudContainer MaxWidth="MaxWidth.Medium" Class="my-16">
+    <div class="intro-content justify-center align-center d-flex flex-column">
+        <div class="intro-line intro-line-1">
+            <MudText Typo="Typo.h4" Align="Align.Center">
+                Innovation meets excellence in software engineering.
+            </MudText>
+        </div>
+        
+        @* Full Screen *@
+        <div class="d-none d-md-inline-flex flex-grow-1 justify-space-between" style="width: 80%;">
+            <div class="d-flex intro-line intro-line-2 left">
+                <MudText Inline Typo="Typo.h5" Align="Align.Center">
+                    Precision. Quality. Results.
+                </MudText>
+            </div>
+            <div class="d-flex align-center intro-line intro-line-2 right">
+                <MudText Inline Typo="Typo.h5" Align="Align.Center">
+                    Building solutions that matter.
+                </MudText>
+            </div>
+        </div>
+        
+        @* Mobile Screen *@
+        <div class="d-inline-flex d-md-none flex-1 justify-center" style="width: 100%;">
+            <MudStack Spacing="2" Justify="Justify.Center">
+            <div class="intro-line intro-line-2 first">
+                <MudText Typo="Typo.h5" Align="Align.Center">
+                    Precision. Quality. Results.
+                </MudText>
+            </div>
+            <div class="intro-line intro-line-2 last">
+                <MudText Typo="Typo.h5" Align="Align.Center">
+                    Building solutions that matter.
+                </MudText>
+            </div>
+            </MudStack>
+        </div>
+    </div>
+</MudContainer>

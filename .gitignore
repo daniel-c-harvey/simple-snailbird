@@ -783,10 +783,10 @@ FodyWeavers.xsd
 *.sln.iml
 
 # Deployment
-*/deploy/
+**/deploy/
 
 # Deployment
-*/database/
+**/database/
 
 # Environment-specific configuration (contains sensitive credentials)
-*/environment/
+**/environment/

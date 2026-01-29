@@ -9,7 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add MudBlazor services
 builder.Services.AddMudServices();
 
-builder.Services.AddCerebellumServices(builder.Configuration);
+builder.Services.AddSnailbirdServices(builder.Configuration);
 
 // Add middleware services
 builder.Services.AddHeadRequestMiddleware();

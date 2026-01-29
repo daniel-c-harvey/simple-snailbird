@@ -2,6 +2,10 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SnailbirdHome", "SnailbirdHome\SnailbirdHome.csproj", "{3F6BA12B-FEEF-4547-AA80-FA37D99C40F3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Snailbird", "Snailbird\Snailbird\Snailbird.csproj", "{FD99960E-19F3-479B-B636-6548CC7D1F08}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Snailbird.Client", "Snailbird\Snailbird.Client\Snailbird.Client.csproj", "{83E96E2F-17E8-4E2D-9CC7-F10ECBF441BC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +16,13 @@ Global
 		{3F6BA12B-FEEF-4547-AA80-FA37D99C40F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3F6BA12B-FEEF-4547-AA80-FA37D99C40F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3F6BA12B-FEEF-4547-AA80-FA37D99C40F3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD99960E-19F3-479B-B636-6548CC7D1F08}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD99960E-19F3-479B-B636-6548CC7D1F08}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD99960E-19F3-479B-B636-6548CC7D1F08}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD99960E-19F3-479B-B636-6548CC7D1F08}.Release|Any CPU.Build.0 = Release|Any CPU
+		{83E96E2F-17E8-4E2D-9CC7-F10ECBF441BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{83E96E2F-17E8-4E2D-9CC7-F10ECBF441BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{83E96E2F-17E8-4E2D-9CC7-F10ECBF441BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{83E96E2F-17E8-4E2D-9CC7-F10ECBF441BC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

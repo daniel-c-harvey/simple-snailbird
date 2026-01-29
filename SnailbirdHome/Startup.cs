@@ -4,11 +4,11 @@ namespace SnailbirdHome;
 
 public static class Startup
 {
-    public static void AddCerebellumServices(this IServiceCollection services, IConfiguration configuration)
+    public static void AddSnailbirdServices(this IServiceCollection services, IConfiguration configuration)
     {
         services
             .AddHttpClient()
-            .AddSingleton<CerebellumThemeFactory>()
+            .AddSingleton<SnailbirdThemeFactory>()
             .AddScoped<ReconnectBehavior>();
     }
 }

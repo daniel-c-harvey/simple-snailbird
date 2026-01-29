@@ -1,8 +1,8 @@
 ﻿using MudBlazor;
 
-namespace SnailbirdHome.Services;
+namespace Snailbird.Services;
 
-public class CerebellumThemeFactory
+public class SnailbirdThemeFactory
 {
     public virtual MudTheme MakeTheme() => new()
     {

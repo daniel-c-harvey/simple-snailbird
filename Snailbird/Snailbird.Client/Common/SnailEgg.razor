@@ -1,0 +1,15 @@
+﻿<div class="snail-egg @DirectionalClass" style="--left-offset: @OffsetValue">
+    <img src="img/snailbird-logo-secret-colored.png" />
+</div>
+
+@code {
+    private int _leftOffset = -60;
+    private string OffsetValue => $"{_leftOffset}vw";
+    private string DirectionalClass => _leftOffset > 0 ? "horizontal-flip" : string.Empty;
+
+    public void Toggle()
+    {
+        _leftOffset = _leftOffset < 0 ? 160 : -60;
+        StateHasChanged();
+    }
+}

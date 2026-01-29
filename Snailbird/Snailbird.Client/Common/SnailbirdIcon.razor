@@ -4,5 +4,15 @@
 
 @code {
     [Parameter] public bool Alt { get; set; } = false;
-    private string _imageSrc => Alt ? "img/snailbird-logo-lg.png" : "img/snailbird-logo-lg.png";
+    [Parameter] public ImgSize Size { get; set; } = ImgSize.Medium;
+
+    private string _size => Size switch
+    {
+        ImgSize.Small => "sm",
+        ImgSize.Medium => "md",
+        ImgSize.Large => "lg",
+        _ => throw new ArgumentException("Unsupported Size")
+    };
+    private string _style => Alt ? "alt-" : string.Empty;
+    private string _imageSrc => $"img/snailbird-logo-3-{_style}{_size}.png";
 }

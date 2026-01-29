@@ -1,7 +1,8 @@
-﻿@inherits LayoutComponentBase
+﻿@using Snailbird.Client.Services
+@inherits LayoutComponentBase
 
 @* Required *@
-<MudThemeProvider />
+<MudThemeProvider Theme="@_theme" IsDarkMode="_isDarkMode" />
 <MudPopoverProvider />
 
 @* Needed for dialogs *@
@@ -10,24 +11,27 @@
 @* Needed for snackbars *@
 <MudSnackbarProvider />
 
-<div class="page">
-    <div class="sidebar">
-        <NavMenu/>
-    </div>
+<MudLayout Style="display: flex; flex-direction: column; min-height: 100vh">
+    <MudAppBar Elevation="1">
+        <NavBar @bind-IsDarkMode="_isDarkMode"/>
+    </MudAppBar>
+    <MudMainContent Class="flex-grow-1">
+        @Body
+    </MudMainContent>
+    <FooterBar />
+</MudLayout>
 
-    <main>
-        <div class="top-row px-4">
-            <a href="https://learn.microsoft.com/aspnet/core/" target="_blank">About</a>
-        </div>
+@code {
 
-        <article class="content px-4">
-            @Body
-        </article>
-    </main>
-</div>
+    private bool _isDarkMode = true;
+    private MudTheme? _theme = null;
 
-<div id="blazor-error-ui" data-nosnippet>
-    An unhandled error has occurred.
-    <a href="." class="reload">Reload</a>
-    <span class="dismiss">🗙</span>
-</div>
+    [Inject] public required SnailbirdThemeFactory ThemeFactory { get; set; }
+    
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+
+        _theme = ThemeFactory.MakeTheme();
+    }
+}

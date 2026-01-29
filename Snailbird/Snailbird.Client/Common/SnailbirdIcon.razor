@@ -1,0 +1,8 @@
+﻿<div class="d-flex align-center justify-center">
+    <MudImage Fluid Width="24" Src="@_imageSrc" Alt="Snailbird Icon" />
+</div>
+
+@code {
+    [Parameter] public bool Alt { get; set; } = false;
+    private string _imageSrc => Alt ? "img/snailbird-logo-lg.png" : "img/snailbird-logo-lg.png";
+}

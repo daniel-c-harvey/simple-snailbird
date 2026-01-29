@@ -1,0 +1,50 @@
+/*
+ * ParallaxView Component Styles
+ *
+ * Structure:
+ * .parallax-container
+ *   .parallax-background-wrapper (provides height in flow, clips overflow)
+ *     .parallax-background (absolute, receives parallax transform and fade)
+ *   .parallax-foreground (normal flow, scrolls over background)
+ */
+
+.parallax-container {
+    position: relative;
+}
+
+/*
+ * Background Wrapper
+ * - Provides height in document flow
+ * - Clips the parallax-transformed background
+ */
+.parallax-background-wrapper {
+    position: relative;
+    height: var(--parallax-background-height, 50vh);
+    overflow: hidden;
+}
+
+/*
+ * Background Layer
+ * - position: absolute within the wrapper
+ * - Extra height allows room for parallax movement
+ * - will-change hints browser for GPU acceleration
+ */
+.parallax-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    will-change: transform, opacity;
+}
+
+/*
+ * Foreground Layer
+ * - z-index: 1 ensures it renders above the background
+ * - Background color creates the "cover" effect as it scrolls over
+ */
+.parallax-foreground {
+    position: relative;
+    z-index: 1;
+    background: var(--mud-palette-surface, #ffffff);
+}

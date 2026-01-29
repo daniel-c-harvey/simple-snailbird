@@ -1,0 +1,89 @@
+@using Snailbird.Client.Common
+
+@* Mobile Menu *@
+<div class="d-inline-flex d-md-none align-center flex-1 justify-space-between">
+    <div>
+        <MudStack Row AlignItems="AlignItems.Center">
+            <MudMenu RelativeWidth="DropdownWidth.Adaptive">
+                <ActivatorContent>
+                    <MudStack Row AlignItems="AlignItems.Center" Spacing="4">
+                        <MudIcon Icon="@Icons.Material.Filled.Menu"/>
+                        <SnailbirdIcon />
+                        <MudText Typo="Typo.button" Color="Color.Secondary" Class="d-none d-sm-inline">Snailbird Labs</MudText>
+                        <MudText Typo="Typo.button" Color="Color.Secondary" Class="d-inline d-sm-none">Snailbird Labs</MudText>
+                    </MudStack>
+                </ActivatorContent>
+                <ChildContent>
+                    @foreach (PageRoute route in Pages.AllPages)
+                    {
+                        <MudMenuItem Href="@route.Route" Class="px-6">
+                            <MudStack Row AlignItems="AlignItems.Center">
+                                <MudIcon Icon="@route.Icon" Color="Color.Secondary"/>   
+                                <MudText Typo="Typo.button" Color="Color.Secondary">
+                                    @route.Name
+                                </MudText>
+                            </MudStack>
+                        </MudMenuItem>
+                    }
+                </ChildContent>
+            </MudMenu>
+        </MudStack>
+    </div>
+    
+    <div>
+        <MudStack Row AlignItems="AlignItems.Center" Spacing="4">
+            <MudIconButton Icon="@(DarkLightModeButtonIcon)" Color="Color.Inherit" OnClick="@DarkModeToggle"/>
+        </MudStack>
+    </div>
+</div>
+        
+@* Main Menu *@
+<div class="d-none d-md-inline-flex align-center flex-1 justify-space-between">
+    <div style="width: 200px;">
+        <MudStack Row AlignItems="AlignItems.Center" Spacing="6">
+            <MudLink Href="/" Underline="Underline.None">
+                <MudStack Row AlignItems="AlignItems.Center">    
+                    <SnailbirdIcon />
+                    <MudText Typo="Typo.button" Color="Color.Secondary">Snailbird Labs</MudText>
+                </MudStack>
+            </MudLink>
+        </MudStack>
+    </div>
+    
+    <div class="flex-grow-1">
+        <MudStack Spacing="8" Row Justify="Justify.Center" AlignItems="AlignItems.Center">
+            @foreach (PageRoute route in Pages.MenuPages)
+            {
+                <MudLink Href="@route.Route">
+                    <MudText Typo="Typo.button" Color="Color.Secondary">@route.Name</MudText>
+                </MudLink>
+            }
+        </MudStack>
+    </div>
+    
+    <div style="width: 200px;">
+        <MudStack Row Justify="Justify.FlexEnd" AlignItems="AlignItems.Center" Spacing="4">
+            <MudIconButton Icon="@(DarkLightModeButtonIcon)" Color="Color.Inherit" OnClick="@DarkModeToggle"/>
+        </MudStack>
+    </div>
+</div>
+
+    
+
+@code {
+    [Parameter] public required bool IsDarkMode { get; set; }
+    [Parameter] public required EventCallback<bool> IsDarkModeChanged { get; set; }
+
+    private void DarkModeToggle()
+    {
+        IsDarkMode = !IsDarkMode;
+        IsDarkModeChanged.InvokeAsync(IsDarkMode);
+    }
+    
+    private string DarkLightModeButtonIcon => IsDarkMode switch
+    {
+        false => Icons.Material.Rounded.LightMode,
+        true => Icons.Material.Outlined.DarkMode,
+    };
+
+}

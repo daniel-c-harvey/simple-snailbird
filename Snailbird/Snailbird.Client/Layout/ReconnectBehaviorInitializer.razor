@@ -1,0 +1,70 @@
+@using Snailbird.Client.Services
+
+@rendermode InteractiveServer
+
+@inject ReconnectBehavior ReconnectBehavior
+@inject IJSRuntime JS
+
+@implements IDisposable
+
+@code {
+    private bool _isInitialized = false;
+
+    protected override void OnInitialized()
+    {
+        // Subscribe to mode changes so we can sync to JavaScript
+        ReconnectBehavior.ModeChanged += OnModeChanged;
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            try
+            {
+                // Call the global setReconnectMode function
+                await JS.InvokeVoidAsync("setReconnectMode", ReconnectBehavior.GetMode());
+                _isInitialized = true;
+            }
+            catch (JSException)
+            {
+                // JavaScript error - reconnect modal will use default behavior
+            }
+        }
+
+        await base.OnAfterRenderAsync(firstRender);
+    }
+
+    private async void OnModeChanged(object? sender, ReconnectMode newMode)
+    {
+        if (!_isInitialized)
+        {
+            // Not initialized yet
+            return;
+        }
+
+        // Update JavaScript whenever mode changes
+        // Use InvokeAsync to marshal back to the UI thread
+        await InvokeAsync(async () =>
+        {
+            try
+            {
+                await JS.InvokeVoidAsync("setReconnectMode", (int)newMode);
+            }
+            catch (JSDisconnectedException)
+            {
+                // Circuit disconnected, this is expected
+            }
+            catch (JSException)
+            {
+                // JavaScript error, ignore
+            }
+        });
+    }
+
+    public void Dispose()
+    {
+        // Unsubscribe from events to prevent memory leaks
+        ReconnectBehavior.ModeChanged -= OnModeChanged;
+    }
+}

@@ -14,6 +14,7 @@ class Program
         builder.Services.AddAuthenticationStateDeserialization();
 
         builder.Services.AddMudServices();
+        builder.Services.AddSnailbirdServices();
         
         await builder.Build().RunAsync();
     }

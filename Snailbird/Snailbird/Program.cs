@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using MudBlazor.Services;
+using Snailbird.Client;
 using Snailbird.Components;
 using Snailbird.Components.Account;
 using Snailbird.Data;
@@ -23,6 +24,7 @@ public class Program
             .AddAuthenticationStateSerialization();
         
         builder.Services.AddMudServices();
+        builder.Services.AddSnailbirdServices();
         builder.Services.AddHeadRequestMiddleware();
 
         builder.Services.AddCascadingAuthenticationState();
